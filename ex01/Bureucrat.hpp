@@ -18,13 +18,16 @@ public:
     void inc();
     void dec();
     const int &getGrade();
-    void GradeTooHighException();
-    void GradeTooLowException();
+    virtual void GradeTooHighException();
+    virtual void GradeTooLowException();
     void CheckGrade(const int &grade);
-    void NoGrade();
-    ~Bureucrat();
+    virtual void NoGrade();
+    virtual ~Bureucrat();
+    void signForm();
+    virtual void beSigned(Bureucrat &Bureucrat);
 };
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);
+
 
 
 #endif

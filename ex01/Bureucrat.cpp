@@ -116,3 +116,19 @@ Bureucrat::Bureucrat(Bureucrat &other)
     }
     
 }
+
+void Bureucrat::beSigned(Bureucrat &Bureucrat)
+{
+    std::cout << "polmorphisme\n";
+}
+void Bureucrat::signForm()
+{
+    try
+    {
+        beSigned(*this);
+    }
+    catch(const std::string &N)
+    {
+        std::cout << name << " signed " << N <<'\n';
+    }
+}
