@@ -5,6 +5,7 @@
 #include <string>
 #include <exception>
 #include "Form.hpp"
+
 class Bureucrat
 {
 private:

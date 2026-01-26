@@ -1,8 +1,7 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureucrat.hpp"
-
+class Bureucrat;
 class Form
 {
 private:
