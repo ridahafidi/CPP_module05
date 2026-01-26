@@ -18,11 +18,21 @@ public:
     void inc();
     void dec();
     const int &getGrade();
-    void GradeTooHighException();
-    void GradeTooLowException();
-    void CheckGrade(const int &grade);
     void NoGrade();
     ~Bureucrat();
+    class GradeTooHighException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too high!";
+        }
+    };
+    
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too low!";
+        }
+    };
 };
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);
 

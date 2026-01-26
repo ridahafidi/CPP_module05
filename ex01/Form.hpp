@@ -3,7 +3,7 @@
 
 #include "Bureucrat.hpp"
 
-class Form : public Bureucrat
+class Form
 {
 private:
     const std::string N;
@@ -16,13 +16,22 @@ public:
     const std::string &getName();
     const int &getSignGrade();
     const int &getExecuteSign();
-    void GradeTooHighException();
-    void GradeTooLowException();
-    void NoGrade();
-    void CheckGrade(const int &sG, const int &sE);
     void beSigned(Bureucrat &Bureucrat);
     void beSignedCheck(const int &BureucratGrade, const int &requiredGrade);
     ~Form();
+    class GradeTooHighException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too high!";
+        }
+    };
+    
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too low!";
+        }
+    };
 };
 std::ostream &operator<< (std::ostream &os, const Form &in);
 
@@ -57,66 +66,23 @@ void    Form::beSignedCheck(const int &BureucratGrade, const int &requiredGrade)
 
 void    Form::beSigned(Bureucrat &Bureucrat)
 {
-    try
-    {
-        beSignedCheck(Bureucrat.getGrade(), signGrade);
-        throw(N);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "beSigned catched : " << e.what() << '\n';
-    }
-}
-
-void Form::NoGrade()
-{
-    throw(std::invalid_argument("No Grade were provided for the Form"));
-}
-
-void Form::CheckGrade(const int &sG, const int &sE)
-{
-    if (sG < 1 || sE < 1)
-        GradeTooHighException();
-    else if (sG > 150 || sE > 150)
-        GradeTooLowException();
-}
-
-void Form::GradeTooHighException()
-{
-    throw(std::out_of_range("Form : Your Grade is too high\n"));
-}
-
-void Form::GradeTooLowException()
-{
-    throw(std::out_of_range("Form : Your grade is too low\n"));
+    beSignedCheck(Bureucrat.getGrade(), signGrade);
 }
 
 Form::Form():N(""),sign(false),signGrade(0),executeGrade(0)
 {
     std::cout << "Form Constructor called\n";
-    try
-    {
-        NoGrade();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "catched : " << e.what() << '\n';
-    }
+    throw(std::invalid_argument("No Grade were provided for the Form"));
     
 }
 
 Form::Form(const std::string &n, const int &sG, const int &eG):N(n), sign(false) , signGrade(sG), executeGrade(eG)
 {
     std::cout << "Form Parametrized Constructor called\n";
-    try
-    {
-        CheckGrade(sG, eG);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "catched" << e.what() << '\n';
-    }
-    
+    if (sG < 1 || eG < 1)
+        throw(GradeTooHighException());
+    else if (sG > 150 || eG > 150)
+        throw(GradeTooLowException());
 }
 
 Form::~Form()

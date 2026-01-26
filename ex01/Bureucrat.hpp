@@ -18,16 +18,23 @@ public:
     void inc();
     void dec();
     const int &getGrade();
-    virtual void GradeTooHighException();
-    virtual void GradeTooLowException();
-    void CheckGrade(const int &grade);
-    virtual void NoGrade();
-    virtual ~Bureucrat();
-    void signForm();
-    virtual void beSigned(Bureucrat &Bureucrat);
+    void NoGrade();
+    ~Bureucrat();
+    class GradeTooHighException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too high!";
+        }
+    };
+    
+    class GradeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Grade is too low!";
+        }
+    };
 };
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);
-
 
 
 #endif
