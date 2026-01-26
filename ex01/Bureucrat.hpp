@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+class Form;
 
 class Bureucrat
 {
@@ -37,17 +37,5 @@ public:
     void signForm(Form& form);
 };
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);
-
-void Bureucrat::signForm(Form& form)
-{
-    try {
-        form.beSigned(*this);
-        std::cout << name << " signed " << form.getName() << std::endl;
-    }
-    catch (const std::exception& e) {
-        std::cout << name << " couldn't sign " << form.getName() 
-                  << " because " << e.what() << std::endl;
-    }
-}
 
 #endif

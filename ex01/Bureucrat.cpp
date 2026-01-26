@@ -1,4 +1,5 @@
 #include "Bureucrat.hpp"
+#include "Form.hpp"
 
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat)
 {
@@ -68,4 +69,16 @@ Bureucrat::Bureucrat(Bureucrat &other)
         throw(GradeTooHighException());
     else if (grade > 150)
         throw(GradeTooLowException());
+}
+
+void Bureucrat::signForm(Form& form)
+{
+    try {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << name << " couldn't sign " << form.getName()
+                  << " because " << e.what();
+    }
 }
