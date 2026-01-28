@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureucrat.hpp"
 
 const int &ShrubberyCreationForm::getSignGrade() const
 {
@@ -11,12 +12,12 @@ const int &ShrubberyCreationForm::getExecuteGrade() const
 }
 const char* ShrubberyCreationForm::SigningExceptionHighGrade::what() const throw()
 {
-    return ("Your Grade is Too High To Sign The ShrubberyCreationForm\n");
+    return ("ShruberryCreation Failed : Your Grade is Too High To Sign The ShrubberyCreationForm\n");
 }
 
 const char* ShrubberyCreationForm::ExecutingExceptionHighGrade::what() const throw()
 {
-    return ("Your Grade is Too High To Execute The ShrubberyCreationForm\n");
+    return ("ShruberryCreation Failed : Your Grade is Too High To Execute The ShrubberyCreationForm\n");
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm():requiredSignGrade(145), requiredExecutionGrade(137)
@@ -55,8 +56,8 @@ void drawSimpleTree(std::ofstream &out) {
 "          * * * * *\n"
 "        * * * * * * *\n"
 "      * * * * * * * * *\n"
-"               ||\n"
-"               ||\n"
+"             ||\n"
+"             ||\n"
 "\n"
 "        ###########\n"
 "     #################\n"

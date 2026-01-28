@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
-
+#include "AForm.hpp"
 class Bureucrat
 {
 private:
@@ -20,6 +20,7 @@ public:
     const int &getGrade()const;
     void NoGrade();
     ~Bureucrat();
+    void executeForm(AForm const & form) const;
     class GradeTooHighException : public std::exception {
     public:
         virtual const char* what() const throw();

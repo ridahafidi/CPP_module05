@@ -17,14 +17,16 @@ public:
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
     void DoExecution(Bureucrat const &executor) const;
-    class SigningExceptionHighGrade : std::exception
+    class SigningExceptionHighGrade : public std::exception
     {
-        virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
     };
     
-    class ExecutingExceptionHighGrade : std::exception
+    class ExecutingExceptionHighGrade : public std::exception
     {
-        virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
     };
 };
 void shrubs(const std::string &target);

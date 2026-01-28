@@ -1,4 +1,5 @@
 #include "AForm.hpp"
+#include "Bureucrat.hpp"
 
 const char* AForm::AFormGradeTooLow::what() const throw()
 {
@@ -29,7 +30,6 @@ void AForm::execute(Bureucrat const &executor) const
 {
     int Grade = executor.getGrade();
     const int &FormExGrade = getExecuteGrade();
-    const int &FormSiGrade = getSignGrade();
     if (Grade > FormExGrade)
         throw(AFormGradeTooLow());
     DoExecution(executor);

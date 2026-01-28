@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Bureucrat.hpp"
+class Bureucrat;
 
 class AForm
 {

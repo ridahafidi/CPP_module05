@@ -79,3 +79,15 @@ const char* Bureucrat::GradeTooLowException::what() const throw()
 {
     return "Bureucrat : Your grade is too low\n";
 }
+
+void Bureucrat::executeForm(AForm const & form) const
+{
+    form.DoExecution(*this);
+    const int &signG = form.getSignGrade();
+    if (signG == 145)
+        std::cout << getName() << " executed ShruberryCreationForm\n";
+    if (signG == 72)
+        std::cout << getName() << " executed RobotomyRequestForm\n";
+    if (signG == 25)
+        std::cout << getName() << " executed PresidentialPardonForm\n";
+}
