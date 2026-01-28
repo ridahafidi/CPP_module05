@@ -1,10 +1,10 @@
 #include "Bureucrat.hpp"
 #include "Form.hpp"
 
-std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat)
+std::ostream &operator<<(std::ostream &other, const Bureucrat &Bureucrat)
 {
-    std::cout << Bureucrat.getName() << ", bureucrat grade " << Bureucrat.getGrade() << std::endl;
-    return (other);
+    other << Bureucrat.getName() << ", bureucrat grade " << Bureucrat.getGrade() << std::endl;
+    return other;
 }
 
 const std::string &Bureucrat::getName() const

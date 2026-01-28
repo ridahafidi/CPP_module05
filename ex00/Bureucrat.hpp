@@ -32,7 +32,7 @@ public:
         virtual const char* what() const throw();
     };
 };
-std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);
+std::ostream &operator<<(std::ostream &other, const Bureucrat &Bureucrat);
 
 
 #endif

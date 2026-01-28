@@ -92,6 +92,6 @@ void drawSimpleTree(std::ofstream &out) {
 
 void shrubs(const std::string &target)
 {
-    std::ofstream out(target + "_shruberry");
+    std::ofstream out((target + "_shruberry").c_str());
     drawSimpleTree(out);
 }
