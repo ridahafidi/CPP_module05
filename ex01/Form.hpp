@@ -19,7 +19,7 @@ public:
     Form(const std::string &n, const int &sG, const int &eG);
     const std::string &getName() const;
     const int &getSignGrade() const;
-    const int &getExecuteSign() const;
+    const int &getExecuteGrade() const;
     void beSigned(Bureucrat &b);
     void beSignedCheck(const int &BureucratGrade, const int &requiredGrade);
     ~Form();

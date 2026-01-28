@@ -14,6 +14,8 @@ private:
 public:
     ShrubberyCreationForm();
     ~ShrubberyCreationForm();
+    const int &getSignGrade() const;
+    const int &getExecuteGrade() const;
     void DoExecution(Bureucrat const &executor) const;
     class SigningExceptionHighGrade : std::exception
     {
@@ -26,54 +28,6 @@ public:
     };
 };
 void shrubs(const std::string &target);
-void drawSimpleTree(int height, const std::ofstream &out);
+void drawSimpleTree(const std::ofstream &out);
 
-const char* ShrubberyCreationForm::SigningExceptionHighGrade::what() const throw()
-{
-    return ("Your Grade is Too High To Sign The ShrubberyCreationForm\n");
-}
-
-const char* ShrubberyCreationForm::ExecutingExceptionHighGrade::what() const throw()
-{
-    return ("Your Grade is Too High To Execute The ShrubberyCreationForm\n");
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm():requiredSignGrade(145), requiredExecutionGrade(137)
-{
-    std::cout << "ShruberryCreationForm Constructor called\n";
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-    std::cout << "ShruberryCreationForm Destructor called\n";
-}
-
-void ShrubberyCreationForm::DoExecution(Bureucrat const &executor) const
-{
-    const int &Grade = executor.getGrade();
-    if (Grade > requiredSignGrade)
-        throw (SigningExceptionHighGrade());
-    if (Grade > requiredExecutionGrade)
-        throw (ExecutingExceptionHighGrade());
-    shrubs(executor.getName());
-}
-
-void drawSimpleTree(int height, std::ofstream &out) {
-    for (int i = 1; i <= height; ++i) {
-        for (int j = 0; j < height - i; ++j)
-            out << " ";
-        for (int j = 0; j < 2 * i - 1; ++j)
-            out << "*";
-        out << std::endl;
-    }
-    // Draw the trunk
-    for (int j = 0; j < height - 1; ++j)
-        out << " ";
-    out << "|" << std::endl;
-}
-
-void shrubs(const std::string &target)
-{
-    std::ofstream out(target + "_shruberry");
-}
 #endif

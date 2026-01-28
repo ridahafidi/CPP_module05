@@ -6,16 +6,19 @@ std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat)
     return (other);
 }
 
-const std::string &Bureucrat::getName()
+const std::string &Bureucrat::getName() const
 {
     return (name);
 }
 
-const int &Bureucrat::getGrade()
+const int &Bureucrat::getGrade()const
 {
     return (grade);
 }
-
+const char* Bureucrat::NoGradeException::what() const throw()
+{
+    return ("No Grade were provided for the bureucrat");
+}
 
 void Bureucrat::inc()
 {
@@ -35,10 +38,6 @@ void Bureucrat::dec()
     }
 }
 
-void Bureucrat::NoGrade()
-{
-    throw(std::invalid_argument("No Grade were provided for the bureucrat"));
-}
 
 Bureucrat::Bureucrat(const std::string &n, int g):name(n),grade(g)
 {
@@ -52,7 +51,7 @@ Bureucrat::Bureucrat(const std::string &n, int g):name(n),grade(g)
 Bureucrat::Bureucrat():name(""),grade(0)
 {
     std::cout << "Bureucrat Constructor called\n";
-    throw(std::invalid_argument("No Grade were provided for the bureucrat"));
+    throw(NoGradeException());
 }
 
 Bureucrat::~Bureucrat()
@@ -68,4 +67,14 @@ Bureucrat::Bureucrat(Bureucrat &other)
         throw(GradeTooHighException());
     else if (grade > 150)
         throw(GradeTooLowException());
+}
+
+const char* Bureucrat::GradeTooHighException::what() const throw()
+{
+    return "Bureucrat : Your Grade is too high\n";
+}
+
+const char* Bureucrat::GradeTooLowException::what() const throw()
+{
+    return "Bureucrat : Your grade is too low\n";
 }

@@ -2,7 +2,7 @@
 #include "Bureucrat.hpp"
 #include <stdexcept>
 
-const int &Form::getExecuteSign() const
+const int &Form::getExecuteGrade() const
 {
     return (executeGrade);
 }
@@ -17,7 +17,7 @@ const std::string &Form::getName() const
 }
 std::ostream &operator<< (std::ostream &os, const Form &in){
     std::cout << "Form name is : " << in.getName() << " my required Grade for Signing is : " << in.getSignGrade()
-    << " and my execute Grade is : " << in.getExecuteSign() << std::endl;
+    << " and my execute Grade is : " << in.getExecuteGrade() << std::endl;
     return (os);
 }
 

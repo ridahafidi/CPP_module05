@@ -14,24 +14,22 @@ public:
     Bureucrat();
     Bureucrat(const std::string &n, int g);
     Bureucrat(Bureucrat &other);
-    const std::string &getName();
+    const std::string &getName() const;
     void inc();
     void dec();
-    const int &getGrade();
-    void NoGrade();
+    const int &getGrade()const;
     ~Bureucrat();
     class GradeTooHighException : public std::exception {
     public:
-        virtual const char* what() const throw() {
-            return "Grade is too high!";
-        }
+        virtual const char* what() const throw();
+    };
+    class NoGradeException : public std::exception {
+        virtual const char* what() const throw();
     };
     
     class GradeTooLowException : public std::exception {
     public:
-        virtual const char* what() const throw() {
-            return "Grade is too low!";
-        }
+        virtual const char* what() const throw();
     };
 };
 std::ostream &operator<<(std::ostream &other, Bureucrat &Bureucrat);

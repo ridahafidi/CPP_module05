@@ -1,6 +1,5 @@
 #include "Bureucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "AForm.hpp"
 int main()
 {
    
@@ -8,11 +7,14 @@ int main()
    {
     ShrubberyCreationForm P;
     Bureucrat lqawad("ahmadabolqhab", 136);
-    // P.execute(lqawad);
+    std::cout << P.getExecuteGrade() << "  " << P.getSignGrade() << std::endl;
+    std::cout << lqawad.getGrade() << std::endl;
+    P.DoExecution(lqawad);
+    P.execute(lqawad);
     
    }
    catch(const std::exception& e)
    {
-    std::cerr << e.what() << '\n';
+    std::cerr << "Catched : " << e.what() << '\n';
    }
 }
