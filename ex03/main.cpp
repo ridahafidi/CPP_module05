@@ -11,8 +11,8 @@ int main()
    {
     Intern someRandomIntern;
     AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    rrf->DoExecution(Bureaucrat("lida", 10));
+    rrf = someRandomIntern.makeForm("shruberry creation", "Bender");
+    rrf->DoExecution(Bureaucrat("li", 4));
     delete rrf;
    }
    catch(const std::exception& e)
