@@ -1,4 +1,4 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -12,7 +12,8 @@ int main()
     Intern someRandomIntern;
     AForm* rrf;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    rrf->DoExecution(Bureucrat("lida", 10));
+    rrf->DoExecution(Bureaucrat("lida", 10));
+    delete rrf;
    }
    catch(const std::exception& e)
    {

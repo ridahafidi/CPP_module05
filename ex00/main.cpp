@@ -1,4 +1,4 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 
 int main()
@@ -6,7 +6,7 @@ int main()
    
     try
    {
-    Bureucrat P;
+    Bureaucrat P;
    }
    catch(const std::exception& e)
    {
@@ -16,8 +16,8 @@ int main()
    
    try
    {
-    Bureucrat P ("b2", 0);
-    Bureucrat x ("b1", 151);
+    Bureaucrat P ("b2", 0);
+    Bureaucrat x ("b1", 151);
    }
    catch(const std::exception& e)
    {
@@ -27,8 +27,8 @@ int main()
    
    try
    {
-    Bureucrat x ("b1", 151);
-    Bureucrat P ("b2", 0);
+    Bureaucrat x ("b1", 151);
+    Bureaucrat P ("b2", 0);
    }
    catch(const std::exception& e)
    {
@@ -37,7 +37,7 @@ int main()
 
    try
    {
-    Bureucrat x ("b1", 10);
+    Bureaucrat x ("b1", 10);
     std::cout << x;
     x.inc();
     std::cout << x;

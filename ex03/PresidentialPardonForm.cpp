@@ -1,5 +1,5 @@
 #include "PresidentialPardonForm.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 const int &PresidentialPardonForm::getSignGrade() const
 {
@@ -35,7 +35,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardonForm Destructor called\n";
 }
 
-void PresidentialPardonForm::DoExecution(Bureucrat const &executor) const
+void PresidentialPardonForm::DoExecution(Bureaucrat const &executor) const
 {
     const int &Grade = executor.getGrade();
     if (Grade > requiredSignGrade)

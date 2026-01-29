@@ -1,8 +1,8 @@
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRCS = Bureucrat.cpp main.cpp
+SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = a.out
+NAME = Bureaucrat
 
 all: $(NAME)
 

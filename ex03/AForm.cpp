@@ -1,5 +1,5 @@
 #include "AForm.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 const char* AForm::AFormGradeTooLow::what() const throw()
 {
@@ -26,7 +26,7 @@ void AForm::beSigned()
     sign = true;
 }
 
-void AForm::execute(Bureucrat const &executor) const
+void AForm::execute(Bureaucrat const &executor) const
 {
     int Grade = executor.getGrade();
     const int &FormExGrade = getExecuteGrade();

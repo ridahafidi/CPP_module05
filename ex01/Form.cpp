@@ -1,5 +1,5 @@
 #include "Form.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include <stdexcept>
 
 const int &Form::getExecuteGrade() const
@@ -21,19 +21,19 @@ std::ostream &operator<< (std::ostream &os, const Form &in){
     return (os);
 }
 
-void    Form::beSignedCheck(const int &BureucratGrade, const int &requiredGrade)
+void    Form::beSignedCheck(const int &BureaucratGrade, const int &requiredGrade)
 {
-    if (BureucratGrade > requiredGrade)
-        throw (std::out_of_range("BureucratGrade is too lower to be signed\n"));
-    if (BureucratGrade < 1)
-        throw (std::out_of_range("BureucratGrade is too High\n"));
+    if (BureaucratGrade > requiredGrade)
+        throw (std::out_of_range("BureaucratGrade is too lower to be signed\n"));
+    if (BureaucratGrade < 1)
+        throw (std::out_of_range("BureaucratGrade is too High\n"));
     else
         sign = true;
 }
 
-void    Form::beSigned(Bureucrat &Bureucrat)
+void    Form::beSigned(Bureaucrat &Bureaucrat)
 {
-    beSignedCheck(Bureucrat.getGrade(), signGrade);
+    beSignedCheck(Bureaucrat.getGrade(), signGrade);
 }
 
 Form::Form():N(""),sign(false),signGrade(0),executeGrade(0)

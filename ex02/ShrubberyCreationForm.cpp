@@ -1,5 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 const int &ShrubberyCreationForm::getSignGrade() const
 {
@@ -30,7 +30,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "ShruberryCreationForm Destructor called\n";
 }
 
-void ShrubberyCreationForm::DoExecution(Bureucrat const &executor) const
+void ShrubberyCreationForm::DoExecution(Bureaucrat const &executor) const
 {
     const int &Grade = executor.getGrade();
     if (Grade > requiredSignGrade)

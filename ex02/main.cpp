@@ -1,4 +1,4 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -10,9 +10,9 @@ int main()
     try
    {
     ShrubberyCreationForm P;
-    Bureucrat l("s1", 136);
-    Bureucrat l2("s2", 5);
-    Bureucrat lwld("s3", 140);
+    Bureaucrat l("ss1", 136);
+    Bureaucrat l2("ss2", 5);
+    Bureaucrat lwld("ss3", 140);
     std::cout << P.getExecuteGrade() << "  " << P.getSignGrade() << std::endl;
     std::cout << l.getGrade() << std::endl;
     P.DoExecution(l);

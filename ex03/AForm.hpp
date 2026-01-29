@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
-class Bureucrat;
+class Bureaucrat;
 
 class AForm
 {
@@ -20,8 +20,8 @@ public:
     AForm(const std::string &name);
     AForm(const std::string &name, int sG, int eG);
     virtual ~AForm();
-    virtual void DoExecution(Bureucrat const &executor)const = 0;
-    void execute(Bureucrat const &executor) const;
+    virtual void DoExecution(Bureaucrat const &executor)const = 0;
+    void execute(Bureaucrat const &executor) const;
     bool issigned() const;
     void beSigned();
     virtual const int &getSignGrade() const;

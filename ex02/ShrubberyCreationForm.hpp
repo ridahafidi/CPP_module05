@@ -16,7 +16,7 @@ public:
     ~ShrubberyCreationForm();
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
-    void DoExecution(Bureucrat const &executor) const;
+    void DoExecution(Bureaucrat const &executor) const;
     class SigningExceptionHighGrade : public std::exception
     {
         public:

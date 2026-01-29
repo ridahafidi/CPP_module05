@@ -1,5 +1,5 @@
 #include "RobotomyRequestForm.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 const int &RobotomyRequestForm::getSignGrade() const
 {
@@ -30,7 +30,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
     std::cout << "RobotomyRequestForm Destructor called\n";
 }
 
-void RobotomyRequestForm::DoExecution(Bureucrat const &executor) const
+void RobotomyRequestForm::DoExecution(Bureaucrat const &executor) const
 {
     const int &Grade = executor.getGrade();
     if (Grade > requiredSignGrade)
