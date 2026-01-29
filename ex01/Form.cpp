@@ -36,11 +36,28 @@ void    Form::beSigned(Bureaucrat &Bureaucrat)
     beSignedCheck(Bureaucrat.getGrade(), signGrade);
 }
 
-Form::Form():N(""),sign(false),signGrade(0),executeGrade(0)
+
+Form::Form():N(""), sign(false), signGrade(0), executeGrade(0)
 {
     std::cout << "Form Constructor called\n";
     throw(std::invalid_argument("No Grade were provided for the Form"));
-    
+}
+
+Form::Form(const Form &other)
+    : N(other.N), sign(other.sign), signGrade(other.signGrade), executeGrade(other.executeGrade)
+{
+    std::cout << "Form Copy Constructor called\n";
+}
+
+Form &Form::operator=(const Form &other)
+{
+    std::cout << "Form Assignment Operator called\n";
+    if (this != &other)
+    {
+        // N, signGrade, executeGrade are const, so only sign can be assigned
+        this->sign = other.sign;
+    }
+    return *this;
 }
 
 Form::Form(const std::string &n, const int &sG, const int &eG):N(n), sign(false) , signGrade(sG), executeGrade(eG)

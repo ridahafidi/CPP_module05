@@ -42,5 +42,26 @@ void PresidentialPardonForm::DoExecution(Bureaucrat const &executor) const
         throw (SigningExceptionHighGrade());
     if (Grade > requiredExecutionGrade)
         throw (ExecutingExceptionHighGrade());
-    std::cout << "Target : " << executor.getName() << " has been pardoned by Zaphod Beeblebrox\n";
+    std::cout << "Target : " << getTarget() << " has been pardoned by Zaphod Beeblebrox\n";
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
+{
+    std::cout << "PresidentialPardonForm Copy Constructor called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+    std::cout << "PresidentialPardonForm Copy Assignement called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+    return (*this);
 }

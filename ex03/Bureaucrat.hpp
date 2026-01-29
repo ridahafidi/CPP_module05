@@ -13,13 +13,14 @@ private:
 public:
     Bureaucrat();
     Bureaucrat(const std::string &n, int g);
-    Bureaucrat(Bureaucrat &other);
+    Bureaucrat(const Bureaucrat &other);
     const std::string &getName() const;
     void inc();
     void dec();
     const int &getGrade()const;
     void NoGrade();
     ~Bureaucrat();
+    Bureaucrat &operator=(const Bureaucrat &other);
     void executeForm(AForm const & form) const;
     class GradeTooHighException : public std::exception {
     public:

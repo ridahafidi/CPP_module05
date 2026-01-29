@@ -11,6 +11,8 @@ private:
 public:
     PresidentialPardonForm();
     ~PresidentialPardonForm();
+    PresidentialPardonForm(const PresidentialPardonForm &other);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
     void DoExecution(Bureaucrat const &executor) const;

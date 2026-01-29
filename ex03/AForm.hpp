@@ -26,6 +26,7 @@ public:
     void beSigned();
     virtual const int &getSignGrade() const;
     virtual const int &getExecuteGrade() const;
+    const std::string &getTarget() const { return N; }
     class AFormGradeTooLow : public std::exception
     {
         public :

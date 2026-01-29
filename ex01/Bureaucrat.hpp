@@ -20,6 +20,7 @@ public:
     void dec();
     const int &getGrade()const;
     ~Bureaucrat();
+    Bureaucrat &operator=(const Bureaucrat &other);
     class GradeTooHighException : public std::exception {
     public:
         virtual const char* what() const throw();

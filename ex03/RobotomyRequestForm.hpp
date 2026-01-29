@@ -12,6 +12,8 @@ public:
     RobotomyRequestForm();
     RobotomyRequestForm(const std::string &N);
     ~RobotomyRequestForm();
+    RobotomyRequestForm(const RobotomyRequestForm &other);
+    RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
     void DoExecution(Bureaucrat const &executor) const;

@@ -14,6 +14,7 @@ public:
     Bureaucrat();
     Bureaucrat(const std::string &n, int g);
     Bureaucrat(Bureaucrat &other);
+    Bureaucrat &operator=(const Bureaucrat &other);
     const std::string &getName() const;
     void inc();
     void dec();

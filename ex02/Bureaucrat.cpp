@@ -91,3 +91,11 @@ void Bureaucrat::executeForm(AForm const & form) const
     if (signG == 25)
         std::cout << getName() << " executed PresidentialPardonForm\n";
 }
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        if (this != &other)
+        grade = other.grade;
+    return *this;
+}

@@ -62,7 +62,8 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(Bureaucrat &other)
 {
     std::cout << "Copy Constructor called\n";
-    grade = other.getGrade();
+    if (this != &other)
+        grade = other.getGrade();
     if (grade < 1)
         throw(GradeTooHighException());
     else if (grade > 150)
@@ -77,4 +78,11 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Bureaucrat : Your grade is too low\n";
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        grade = other.grade;
+    return *this;
 }

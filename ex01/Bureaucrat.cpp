@@ -7,6 +7,13 @@ std::ostream &operator<<(std::ostream &other, const Bureaucrat &Bureaucrat)
     return other;
 }
 
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        grade = other.grade;
+    return *this;
+}
+
 const std::string &Bureaucrat::getName() const
 {
     return (name);

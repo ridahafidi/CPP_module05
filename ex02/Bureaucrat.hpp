@@ -20,6 +20,7 @@ public:
     const int &getGrade()const;
     void NoGrade();
     ~Bureaucrat();
+    Bureaucrat &operator=(const Bureaucrat &other);
     void executeForm(AForm const & form) const;
     class GradeTooHighException : public std::exception {
     public:

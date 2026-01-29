@@ -43,5 +43,28 @@ void RobotomyRequestForm::DoExecution(Bureaucrat const &executor) const
     if (Grade > requiredExecutionGrade)
         throw (ExecutingExceptionHighGrade());
     std::cout << "*Noise* : BEEEP BOOOP BEEP BEEP BOOP\n";
-    std::cout << "Target : " << executor.getName() << " has been robotomized successfully 50% of the time\n";
+    std::cout << "Target : " << getTarget() << " has been robotomized successfully 50% of the time\n";
+}
+
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+{
+    std::cout << "RobotomyRequestForm Copy Constructor called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    std::cout << "RobotomyRequestForm Copy Assignement called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+    return (*this);
+
 }

@@ -17,6 +17,8 @@ private:
 public:
     Form();
     Form(const std::string &n, const int &sG, const int &eG);
+    Form(const Form &other);
+    Form &operator=(const Form &other);
     const std::string &getName() const;
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;

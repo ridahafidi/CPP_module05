@@ -11,6 +11,8 @@ private:
 public:
     RobotomyRequestForm();
     ~RobotomyRequestForm();
+    RobotomyRequestForm(const RobotomyRequestForm &other);
+    RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
     void DoExecution(Bureaucrat const &executor) const;
@@ -26,9 +28,6 @@ class SigningExceptionHighGrade : public std::exception
             virtual const char* what() const throw();
     };
 };
-
-
-
 
 
 #endif

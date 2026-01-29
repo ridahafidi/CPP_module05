@@ -42,7 +42,7 @@ void ShrubberyCreationForm::DoExecution(Bureaucrat const &executor) const
         throw (SigningExceptionHighGrade());
     if (Grade > requiredExecutionGrade)
         throw (ExecutingExceptionHighGrade());
-    shrubs(executor.getName());
+    shrubs(getTarget());
 }
 
 void drawSimpleTree(std::ofstream &out) {
@@ -99,4 +99,26 @@ void shrubs(const std::string &target)
 {
     std::ofstream out((target + "_shruberry").c_str());
     drawSimpleTree(out);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+{
+    std::cout << "ShrubberyCreationForm Copy Constructor called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+    std::cout << "ShrubberyCreationForm Copy Assignement called\n";
+    if (this != &other)
+    {
+        requiredExecutionGrade = other.requiredExecutionGrade;
+        requiredSignGrade = other.requiredSignGrade;
+    }
+    return (*this);
+
 }

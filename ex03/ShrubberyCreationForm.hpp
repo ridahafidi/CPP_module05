@@ -15,6 +15,8 @@ public:
     ShrubberyCreationForm();
     ShrubberyCreationForm(const std::string &N);
     ~ShrubberyCreationForm();
+    ShrubberyCreationForm(const ShrubberyCreationForm &other);
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
     const int &getSignGrade() const;
     const int &getExecuteGrade() const;
     void DoExecution(Bureaucrat const &executor) const;

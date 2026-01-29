@@ -60,7 +60,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat Destructor called\n";
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {
     std::cout << "Copy Constructor called\n";
     grade = other.getGrade();
@@ -91,3 +91,13 @@ void Bureaucrat::executeForm(AForm const & form) const
     if (signG == 25)
         std::cout << getName() << " executed PresidentialPardonForm\n";
 }
+
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    std::cout << "Bureaucrat Copy Assignement called\n";
+    if (this != &other)
+        grade = other.grade;
+    return *this;
+}
+
