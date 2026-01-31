@@ -1,5 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 
 const int &RobotomyRequestForm::getSignGrade() const
 {
@@ -43,9 +45,13 @@ void RobotomyRequestForm::DoExecution(Bureaucrat const &executor) const
     if (Grade > requiredExecutionGrade)
         throw (ExecutingExceptionHighGrade());
     std::cout << "*Noise* : BEEEP BOOOP BEEP BEEP BOOP\n";
-    std::cout << "Target : " << getTarget() << " has been robotomized successfully 50% of the time\n";
+    std::srand(std::time(NULL));
+    bool trigger = std::rand() % 2;
+    if (trigger == true)
+    std::cout << "Target : " << getTarget() << " has been robotomized successfully\n";
+    else if (trigger == false)
+    std::cout << "Target : " << getTarget() << " has failed being robotomized\n";
 }
-
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 {

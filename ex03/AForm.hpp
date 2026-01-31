@@ -26,11 +26,13 @@ public:
     void beSigned();
     virtual const int &getSignGrade() const;
     virtual const int &getExecuteGrade() const;
-    const std::string &getTarget() const { return N; }
+    const std::string &getTarget() const;
     class AFormGradeTooLow : public std::exception
     {
         public :
             virtual const char* what() const throw();
     };
 };
+
+
 #endif

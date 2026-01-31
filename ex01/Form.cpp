@@ -54,7 +54,6 @@ Form &Form::operator=(const Form &other)
     std::cout << "Form Assignment Operator called\n";
     if (this != &other)
     {
-        // N, signGrade, executeGrade are const, so only sign can be assigned
         this->sign = other.sign;
     }
     return *this;

@@ -6,6 +6,11 @@ const char* AForm::AFormGradeTooLow::what() const throw()
     return ("The Target Grade is Too Low\n");
 }
 
+const std::string &AForm::getTarget() const 
+{ 
+    return N; 
+}
+
 bool AForm::issigned() const
 {
     return (sign);

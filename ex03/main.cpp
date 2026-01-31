@@ -11,7 +11,7 @@ int main()
    {
     Intern someRandomIntern;
     AForm* rrf;
-    rrf = someRandomIntern.makeForm("shruberry creation", "Bender");
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     rrf->DoExecution(Bureaucrat("li", 4));
     delete rrf;
    }
