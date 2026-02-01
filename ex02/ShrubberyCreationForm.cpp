@@ -1,15 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-const int &ShrubberyCreationForm::getSignGrade() const
-{
-    return (requiredSignGrade);
-}
-
-const int &ShrubberyCreationForm::getExecuteGrade() const
-{
-    return (requiredExecutionGrade);
-}
 const char* ShrubberyCreationForm::SigningExceptionHighGrade::what() const throw()
 {
     return ("ShruberryCreation Failed : Your Grade is Too High To Sign The ShrubberyCreationForm\n");
@@ -20,7 +11,7 @@ const char* ShrubberyCreationForm::ExecutingExceptionHighGrade::what() const thr
     return ("ShruberryCreation Failed : Your Grade is Too High To Execute The ShrubberyCreationForm\n");
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm():requiredSignGrade(145), requiredExecutionGrade(137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
 {
     std::cout << "ShruberryCreationForm Constructor called\n";
 }
@@ -33,9 +24,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::DoExecution(Bureaucrat const &executor) const
 {
     const int &Grade = executor.getGrade();
-    if (Grade > requiredSignGrade)
+    if (Grade > getSignGrade())
         throw (SigningExceptionHighGrade());
-    if (Grade > requiredExecutionGrade)
+    if (Grade > getExecuteGrade())
         throw (ExecutingExceptionHighGrade());
     shrubs(getTarget());
 }
@@ -96,24 +87,14 @@ void shrubs(const std::string &target)
     drawSimpleTree(out);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
 {
     std::cout << "ShrubberyCreationForm Copy Constructor called\n";
-    if (this != &other)
-    {
-        requiredExecutionGrade = other.requiredExecutionGrade;
-        requiredSignGrade = other.requiredSignGrade;
-    }
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
     std::cout << "ShrubberyCreationForm Copy Assignement called\n";
-    if (this != &other)
-    {
-        requiredExecutionGrade = other.requiredExecutionGrade;
-        requiredSignGrade = other.requiredSignGrade;
-    }
+    (void)other;
     return (*this);
-
 }

@@ -29,6 +29,7 @@ void    Form::beSignedCheck(const int &BureaucratGrade, const int &requiredGrade
         throw (std::out_of_range("BureaucratGrade is too High\n"));
     else
         sign = true;
+        new
 }
 
 void    Form::beSigned(Bureaucrat &Bureaucrat)

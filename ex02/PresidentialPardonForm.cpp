@@ -1,15 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
-const int &PresidentialPardonForm::getSignGrade() const
-{
-    return (requiredSignGrade);
-}
-
-const int &PresidentialPardonForm::getExecuteGrade() const
-{
-    return (requiredExecutionGrade);
-}
 const char* PresidentialPardonForm::SigningExceptionHighGrade::what() const throw()
 {
     return ("PresidentialPardonForm Failed : Your Grade is Too High To Sign The PresidentialPardonForm\n");
@@ -20,7 +11,7 @@ const char* PresidentialPardonForm::ExecutingExceptionHighGrade::what() const th
     return ("PresidentialPardonForm Failed : Your Grade is Too High To Execute The PresidentialPardonForm\n");
 }
 
-PresidentialPardonForm::PresidentialPardonForm():requiredSignGrade(25), requiredExecutionGrade(5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
 {
     std::cout << "PresidentialPardonForm Constructor called\n";
 }
@@ -33,31 +24,21 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::DoExecution(Bureaucrat const &executor) const
 {
     const int &Grade = executor.getGrade();
-    if (Grade > requiredSignGrade)
+    if (Grade > getSignGrade())
         throw (SigningExceptionHighGrade());
-    if (Grade > requiredExecutionGrade)
+    if (Grade > getExecuteGrade())
         throw (ExecutingExceptionHighGrade());
     std::cout << "Target : " << getTarget() << " has been pardoned by Zaphod Beeblebrox\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other)
 {
     std::cout << "PresidentialPardonForm Copy Constructor called\n";
-    if (this != &other)
-    {
-        requiredExecutionGrade = other.requiredExecutionGrade;
-        requiredSignGrade = other.requiredSignGrade;
-    }
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
     std::cout << "PresidentialPardonForm Copy Assignement called\n";
-    if (this != &other)
-    {
-        requiredExecutionGrade = other.requiredExecutionGrade;
-        requiredSignGrade = other.requiredSignGrade;
-    }
+    (void)other;
     return (*this);
-
 }

@@ -17,8 +17,6 @@ int main()
     std::cout << l.getGrade() << std::endl;
     P.DoExecution(l);
     P.execute(l);
-    std::cout << P.getExecuteGrade() << "  " << P.getSignGrade() << std::endl;
-    std::cout << lwld.getGrade() << std::endl;
     RobotomyRequestForm contrada;
     contrada.DoExecution(l2);
     PresidentialPardonForm con;

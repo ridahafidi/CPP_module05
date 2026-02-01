@@ -24,13 +24,13 @@ public:
     void execute(Bureaucrat const &executor) const;
     bool issigned() const;
     void beSigned();
-    virtual const int &getSignGrade() const;
-    virtual const int &getExecuteGrade() const;
+    const int &getSignGrade() const;
+    const int &getExecuteGrade() const;
     const std::string &getTarget() const;
     class AFormGradeTooLow : public std::exception
     {
         public :
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 };
 

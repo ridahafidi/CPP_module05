@@ -5,28 +5,23 @@
 
 class RobotomyRequestForm: public AForm
 {
-private:
-    int requiredSignGrade;
-    int requiredExecutionGrade;
 public:
     RobotomyRequestForm();
     RobotomyRequestForm(const std::string &N);
     ~RobotomyRequestForm();
     RobotomyRequestForm(const RobotomyRequestForm &other);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
-    const int &getSignGrade() const;
-    const int &getExecuteGrade() const;
     void DoExecution(Bureaucrat const &executor) const;
 class SigningExceptionHighGrade : public std::exception
     {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
     
     class ExecutingExceptionHighGrade : public std::exception
     {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 };
 

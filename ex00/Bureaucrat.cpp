@@ -41,11 +41,12 @@ void Bureaucrat::dec()
 
 Bureaucrat::Bureaucrat(const std::string &n, int g):name(n),grade(g)
 {
-    std::cout << "Bureaucrat Parametrized Constructor called\n";
+     std::cout << "Bureaucrat Parametrized Constructor called\n";
     if (grade < 1)
         throw(GradeTooHighException());
     else if (grade > 150)
         throw(GradeTooLowException());
+        
 }
 
 Bureaucrat::Bureaucrat():name(""),grade(0)
@@ -61,7 +62,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(Bureaucrat &other)
 {
-    std::cout << "Copy Constructor called\n";
+    // std::cout << "Copy Constructor called\n";
     if (this != &other)
         grade = other.getGrade();
     if (grade < 1)

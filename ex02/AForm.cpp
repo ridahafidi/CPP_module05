@@ -49,3 +49,7 @@ AForm::~AForm()
 {
     std::cout << "AForm Destructor called\n";
 }
+const std::string &AForm::getTarget() const 
+{
+    return N;
+}
